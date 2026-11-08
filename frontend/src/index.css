@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+    background-color: #050814;
+  }
+
+  body {
+    @apply font-sans;
+    background-color: #050814;
+    color: #F8FAFC;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom futuristic Dark & Blue scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(5, 8, 20, 0.95);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #1D4ED8, #3B82F6, #06B6D4);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #06B6D4, #2563EB);
+}
+
+/* Futuristic Dark & Blue glassmorphism */
+.glass-cyber {
+  background: rgba(10, 16, 38, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(59, 130, 246, 0.32);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(59, 130, 246, 0.08);
+  color: #F8FAFC;
+}
+
+/* Form Controls - Crisp Dark & Blue */
+input:not([type="checkbox"]):not([type="radio"]),
+textarea,
+select {
+  background-color: rgba(10, 16, 38, 0.92) !important;
+  color: #F8FAFC !important;
+  border-color: rgba(59, 130, 246, 0.35) !important;
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #94A3B8 !important;
+}
+
+select option {
+  background-color: #050814 !important;
+  color: #F8FAFC !important;
+}
+
+/* Glowing card border in Dark & Blue */
+.glow-border {
+  position: relative;
+}
+
+.glow-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(135deg, rgba(6, 182, 212, 0.7), rgba(37, 99, 235, 0.6), rgba(59, 130, 246, 0.8));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* 3D perspective wrapper */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Glowing text */
+.text-glow-cyan {
+  text-shadow: 0 0 20px rgba(6, 182, 212, 0.7);
+}
+
+.text-glow-electric {
+  text-shadow: 0 0 25px rgba(37, 99, 235, 0.7);
+}
+
+.text-glow-neon {
+  text-shadow: 0 0 25px rgba(56, 189, 248, 0.7);
+}
+
+/* Dark & Blue Gradient mesh background */
+.bg-mesh-dark {
+  background-color: #050814;
+  background-image:
+    radial-gradient(at 0% 0%, rgba(37, 99, 235, 0.28) 0px, transparent 55%),
+    radial-gradient(at 100% 0%, rgba(14, 165, 233, 0.22) 0px, transparent 50%),
+    radial-gradient(at 50% 50%, rgba(6, 182, 212, 0.15) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, rgba(10, 16, 38, 0.98) 0px, transparent 55%);
+}

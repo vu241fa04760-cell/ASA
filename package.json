@@ -1,0 +1,23 @@
+{
+  "name": "ai-study-assistant-mern",
+  "version": "1.0.0",
+  "description": "AI Study Assistance Web Application - MERN Stack",
+  "scripts": {
+    "server": "npm run dev --prefix backend",
+    "client": "npm run dev --prefix frontend",
+    "start": "node backend/server.js",
+    "seed": "npm run seed --prefix backend",
+    "build": "npm run build --prefix frontend"
+  },
+  "keywords": [
+    "mern",
+    "ai",
+    "study-assistant",
+    "gemini",
+    "react",
+    "express",
+    "mongodb"
+  ],
+  "author": "Antigravity AI",
+  "license": "MIT"
+}
