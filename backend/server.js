@@ -42,7 +42,7 @@ app.use(
       // allow requests with no origin (like mobile apps or curl)
       if (!origin) return callback(null, true);
       if (allowedOrigins.indexOf(origin) === -1) {
-        return callback(null, true); // Allow during local dev for seamless flexibility
+        return callback(null, true); // Allow during local dev and Render deployments
       }
       return callback(null, true);
     },
@@ -66,7 +66,7 @@ app.get('/api/health', (req, res) => {
   });
 });
 
-// Mount Routes
+// Mount API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/notes', notesRoutes);
@@ -76,7 +76,19 @@ app.use('/api/documents', documentRoutes);
 app.use('/api/chat', chatRoutes);
 app.use('/api/progress', progressRoutes);
 
-// Error Handling Middlewares
+// Serve frontend in production if built
+const frontendDist = path.join(__dirname, '../frontend/dist');
+if (fs.existsSync(frontendDist)) {
+  app.use(express.static(frontendDist));
+  app.get('*', (req, res, next) => {
+    if (req.path.startsWith('/api') || req.path.startsWith('/uploads')) {
+      return next();
+    }
+    res.sendFile(path.join(frontendDist, 'index.html'));
+  });
+}
+
+// Error Handling Middlewares for API
 app.use(notFound);
 app.use(errorHandler);
 
